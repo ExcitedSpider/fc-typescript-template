@@ -24,7 +24,7 @@ npm install @alicloud/fun -g
 ## 基于此骨架初始化项目
 
 ```bash
-fun init -n demo https://github.com/ExcitedSpider/fc-express-typescript-template.git
+fun init -n demo https://github.com/ExcitedSpider/fc-typescript-template.git
 ```
 
 ## 安装依赖
