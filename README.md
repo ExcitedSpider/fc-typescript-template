@@ -2,7 +2,7 @@
 
 阿里云函数计算项目骨架。预设为HTTP触发器，适合开发微服务/Restful API/简易Web应用。
 * 语言: TypeScript
-* 运行时: nodejs8
+* 运行时: nodejs10
 * 代码打包: webpack
 * 代码规范: eslint(airbnb规则)+prettier
 
