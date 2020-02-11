@@ -3,7 +3,11 @@ module.exports = {
     browser: false,
     es6: true,
   },
-  extends: ['airbnb-base'],
+  extends: [
+    'airbnb-base',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -14,6 +18,13 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint'],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'], // 为了可以解析其他后缀名模块
+      },
+    },
+  },
   rules: {
     'import/no-extraneous-dependencies': [
       'error',
@@ -32,6 +43,18 @@ module.exports = {
     /**
      * 在函数计算runtime中，console方法是作为日志使用的，所以允许存在
      */
-    'no-console': ["error", { allow: ["log","debug","warn", "error"] }],
+    'no-console': ['error', { allow: ['log', 'debug', 'warn', 'error'] }],
+    /**
+     * 俺就是不喜欢加后缀名
+     */
+    'import/extensions': [
+      'error',
+      {
+        ts: 'never',
+        js: 'never',
+        jsx: 'never',
+        tsx: 'never'
+      },
+    ],
   },
 };
