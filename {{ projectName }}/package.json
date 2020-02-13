@@ -34,5 +34,10 @@
     "webpack-node-externals": "^1.7.2"
   },
   "author": "qiuyifeng1997@outlook.com",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "http-hash-router": "^2.0.1",
+    "mysql": "^2.18.1",
+    "sequelize": "^5.21.4"
+  }
 }

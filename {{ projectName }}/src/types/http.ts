@@ -1,9 +1,10 @@
 import { Readable } from 'stream';
+import { IncomingMessage, ServerResponse } from 'http';
 
 /**
  * HTTP触发器中的请求类
  */
-export interface FcHttpRequest extends Readable {
+export interface FcHttpRequest extends IncomingMessage {
   headers: { [index: string]: string };
   path: string;
   queries: { [index: string]: string };
@@ -15,7 +16,7 @@ export interface FcHttpRequest extends Readable {
 /**
  * HTTP触发器中的响应类
  */
-export interface FcHttpResponse {
+export interface FcHttpResponse extends ServerResponse {
   setStatusCode: (statusCode: number) => void;
   setHeader: (headerKey: string, headerValue: string) => void;
   deleteHeader: (headerKey: string) => void;

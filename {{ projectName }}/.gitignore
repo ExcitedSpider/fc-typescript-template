@@ -12,3 +12,5 @@ jdt.ls-java-project
 .history
 .Trash-*
 dist
+.vscode
+debug connection Session.sql

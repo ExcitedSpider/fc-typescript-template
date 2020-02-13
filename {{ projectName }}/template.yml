@@ -1,6 +1,15 @@
 ROSTemplateFormatVersion: '2015-09-01'
 Transform: 'Aliyun::Serverless-2018-04-03'
 Resources:
+  demo-domain: # 自定义域名。将函数直接绑定到域名跟节点
+    Type: 'Aliyun::Serverless::CustomDomain'
+    Properties:
+      Protocol: HTTP
+      RouteConfig:
+        Routes:
+          '/':
+            ServiceName: 'demo-service'
+            FunctionName: 'demo'
   demo-service: # service name
     Type: 'Aliyun::Serverless::Service'
     Properties:
