@@ -1,9 +1,24 @@
 import getRawBody from 'raw-body';
 import { FcHttpRequest } from '@/types/http';
 
+type ContentTypeParser = (bodyBuffer: Buffer) => any;
+interface ContentTypeParserTable {
+  [contentType: string]: ContentTypeParser;
+}
+/** application/json */
+const jsonParser: ContentTypeParser = body =>
+  JSON.parse(Buffer.prototype.toString.apply(body));
+
 /**
- * 获取函数body的方法
- * 为了便于拓展其他content-type的请求，写了个switch
+ * 不同content-type对应的parser配置表
+ */
+const contentTypeParserTable: ContentTypeParserTable = {
+  'application/json': jsonParser,
+};
+
+/**
+ * 根据contentType获取函数body的方法
+ * 不同的contentType使用不同的parser，在contentTypeParser对象中配置
  * @param request 函数计算http请求对象
  */
 export default (req: FcHttpRequest) =>
@@ -12,13 +27,10 @@ export default (req: FcHttpRequest) =>
       if (err) {
         reject(err);
       }
-      switch (req?.headers['content-type']) {
-        case 'application/json':
-          resolve(JSON.parse(body.toString()));
-          break;
-        default:
-          resolve(body);
-          break;
+      const parser = contentTypeParserTable[req?.headers['content-type']];
+      if (parser) {
+        resolve(parser(body));
       }
+      resolve(body);
     });
   });
