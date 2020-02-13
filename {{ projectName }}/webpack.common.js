@@ -28,4 +28,10 @@ module.exports = {
     aggregateTimeout: 500, //防止重复按键，500毫米内算按键一次
     ignored: /node_modules/, //不监测
   },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'), // 这样配置后 @ 可以指向 src 目录
+    },
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  },
 };

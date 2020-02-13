@@ -23,6 +23,12 @@ module.exports = {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'], // 为了可以解析其他后缀名模块
       },
+      webpack: {
+        config: './webpack.dev.js',
+      },
+    },
+    alias: {
+      map: [['@', './src']],
     },
   },
   rules: {
@@ -53,8 +59,11 @@ module.exports = {
         ts: 'never',
         js: 'never',
         jsx: 'never',
-        tsx: 'never'
+        tsx: 'never',
       },
     ],
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'import/prefer-default-export': 'off',
+    'implicit-arrow-linebreak': 'off',
   },
 };

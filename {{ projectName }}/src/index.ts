@@ -1,29 +1,15 @@
-import getRawBody from 'raw-body';
+import getBody from '@/utils/getBody';
 import { HttpTrigger } from './types/trigger';
 
-const httpTrigger: HttpTrigger = (req, resp) => {
-  console.log(req);
-
-  const params = {
-    path: req.path,
-    queries: req.queries,
-    headers: req.headers,
-    method: req.method,
-    requestURI: req.url,
-    clientIP: req.clientIP,
-    body: null,
-  };
-
-  getRawBody(req, (err, body) => {
-    resp.setHeader('content-type', 'text/plain');
-
-    Object.keys(req.queries).forEach(key => {
-      resp.setHeader(key, req.queries[key]);
-    });
-
-    params.body = body.toString();
-    resp.send(JSON.stringify(params, null, '    '));
-  });
+const httpTrigger: HttpTrigger = async (req, resp) => {
+  try {
+    const body = await getBody(req);
+    resp.setHeader('content-type', 'application/json');
+    resp.send(JSON.stringify(body));
+  } catch (err) {
+    resp.setStatusCode(500);
+    resp.send('请求失败');
+  }
 };
 
 // http trigger entry

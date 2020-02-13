@@ -7,6 +7,10 @@
     "sourceMap": true,
     "moduleResolution": "node",
     "allowJs": true,
-    "lib": ["dom", "es5", "scripthost", "es2015.promise"]
+    "lib": ["dom", "es5", "scripthost", "es2015.promise"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   }
 }
