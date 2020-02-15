@@ -1,15 +1,13 @@
 import getBody from '@/utils/getBody';
 import { HttpTrigger } from './types/trigger';
+import handleError from '@/utils/handleError';
+import router from '@/router';
 
 const httpTrigger: HttpTrigger = async (req, resp) => {
-  try {
-    const body = await getBody(req);
-    resp.setHeader('content-type', 'application/json');
-    resp.send(JSON.stringify(body));
-  } catch (err) {
-    resp.setStatusCode(500);
-    resp.send('请求失败');
-  }
+  const body = await getBody(req);
+  Object.assign(req, { body });
+
+  router(req, resp, error => handleError(req, resp, error));
 };
 
 // http trigger entry

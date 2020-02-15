@@ -11,6 +11,8 @@ export interface FcHttpRequest extends IncomingMessage {
   method: string;
   clientIP: string;
   url: string;
+  /** body属性是解析后加上的，本身无 */
+  body: any;
 }
 
 /**
@@ -22,3 +24,16 @@ export interface FcHttpResponse extends ServerResponse {
   deleteHeader: (headerKey: string) => void;
   send: (body: Buffer | Readable | string) => void;
 }
+
+/** 中間件 */
+export type MiddleWare = (
+  req: FcHttpRequest,
+  resp: FcHttpResponse,
+  next: (error?: Error) => void,
+) => void;
+
+/** 请求处理器 */
+export type Handler = (
+  req: FcHttpRequest,
+  resp: FcHttpResponse,
+) => void;

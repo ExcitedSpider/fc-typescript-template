@@ -10,9 +10,10 @@ const jsonParser: ContentTypeParser = body =>
   JSON.parse(Buffer.prototype.toString.apply(body));
 
 /**
- * 不同content-type对应的parser配置表
+ * @info 不同content-type对应的parser配置表
+ * 当需要解析其他类型的content-type时，修改本对象
  */
-const contentTypeParserTable: ContentTypeParserTable = {
+const PARSER_TABLE: ContentTypeParserTable = {
   'application/json': jsonParser,
 };
 
@@ -27,7 +28,7 @@ export default (req: FcHttpRequest) =>
       if (err) {
         reject(err);
       }
-      const parser = contentTypeParserTable[req?.headers['content-type']];
+      const parser = PARSER_TABLE[req?.headers['content-type']];
       if (parser) {
         resolve(parser(body));
       }

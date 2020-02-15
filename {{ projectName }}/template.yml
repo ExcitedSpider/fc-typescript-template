@@ -7,7 +7,7 @@ Resources:
       Protocol: HTTP
       RouteConfig:
         Routes:
-          '/':
+          '/*':
             ServiceName: 'demo-service'
             FunctionName: 'demo'
   demo-service: # service name
