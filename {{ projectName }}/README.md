@@ -1,6 +1,6 @@
-# fc-typescript-template
+# fc-typescript-application
 
-阿里云函数计算项目骨架。预设为HTTP触发器，适合开发微服务/Restful API/简易Web应用。
+本项目基于阿里云函数计算项目骨架，作者[@ExcitedSpider](https://github.com/ExcitedSpider/fc-typescript-template)。项目骨架预设为HTTP触发器，适合开发微服务/Restful API/简易Web应用。
 * 语言: TypeScript
 * 运行时: nodejs8
 * 代码打包: webpack
