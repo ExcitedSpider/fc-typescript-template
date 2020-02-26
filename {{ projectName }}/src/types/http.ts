@@ -3,7 +3,7 @@
  * @LastEditors qyfeng
  * @LastEditTime 2020-02-19 17:26:48
  * @Description http相关类型声明
- * @FilePath /fc-dict/src/types/http.ts
+ * @FilePath /fc-demo/src/types/http.ts
  */
 import { Readable } from 'stream';
 import { IncomingMessage, ServerResponse } from 'http';

@@ -1,15 +1,19 @@
 /*
  * @Author qyfeng
  * @LastEditors qyfeng
- * @LastEditTime 2020-02-19 16:55:24
+ * @LastEditTime 2020-02-26 11:11:21
  * @Description 路由配置文件
- * @FilePath /fc-dict/src/router/index.ts
+ * @FilePath /{{ projectName }}/src/router/index.ts
  */
 import Router from 'router';
-import demoHandler from '@/controller/demo';
+import demoController from '@/controller/demo';
+import APP_CONFIG from '@/config';
+
+const { FC_PREFIX } = APP_CONFIG;
 
 const router = Router();
 
-router.get('/demorouter', demoHandler);
+/** demo */
+router.get(`${FC_PREFIX}/demorouter`, demoController);
 
 export default router;

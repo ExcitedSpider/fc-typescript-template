@@ -3,7 +3,7 @@
  * @LastEditors qyfeng
  * @LastEditTime 2020-02-19 16:22:17
  * @Description 示例控制器代码
- * @FilePath /fc-dict/src/controller/demo/index.ts
+ * @FilePath /fc-demo/src/controller/demo/index.ts
  */
 import { Handler } from '@/types/http';
 

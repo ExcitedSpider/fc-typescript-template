@@ -6,6 +6,8 @@
 * 代码打包: webpack
 * 代码规范: eslint(airbnb规则)+prettier
 
+为什么不直接使用函数计算官方提供的express转换器？因为该项目以及很久没有维护，而且直接从express的方法去写serverless会造成很多问题，express本身的思路是有状态的，比如session等功能，这些区别会造成疑惑，所以不再采用。而是使用更底层的路由库Router.js去搭建本脚手架。因为Router.js也是无状态的，更加适合serverless。
+
 ## 准备
 1. 安装 node
 

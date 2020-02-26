@@ -3,7 +3,7 @@
  * @LastEditors qyfeng
  * @LastEditTime 2020-02-19 16:59:31
  * @Description mongo连接
- * @FilePath /fc-dict/src/database/mongo.ts
+ * @FilePath /fc-demo/src/database/mongo.ts
  */
 import mongoose from 'mongoose';
 import CONFIG from '@/config';

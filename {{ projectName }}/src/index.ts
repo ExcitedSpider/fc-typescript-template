@@ -3,7 +3,7 @@
  * @LastEditors qyfeng
  * @LastEditTime 2020-02-19 17:22:09
  * @Description 函数入口文件
- * @FilePath /fc-dict/src/index.ts
+ * @FilePath /fc-demo/src/index.ts
  */
 
 import getBody from '@/utils/getBody';

@@ -3,7 +3,7 @@
  * @LastEditors qyfeng
  * @LastEditTime 2020-02-19 17:19:51
  * @Description 发送JSON数据的统一方法，方便统一头部
- * @FilePath /fc-dict/src/utils/sendData.ts
+ * @FilePath /fc-demo/src/utils/sendData.ts
  */
 import { FcHttpResponse } from '@/types/http';
 
