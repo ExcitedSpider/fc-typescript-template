@@ -1,3 +1,10 @@
+/*
+ * @Author qyfeng
+ * @LastEditors qyfeng
+ * @LastEditTime 2020-03-13 11:06:02
+ * @Description 
+ * @FilePath \fc-authd:\WorkSpace\fc-typescript-template\{{ projectName }}\src\utils\getBody.ts
+ */
 import getRawBody from 'raw-body';
 import { FcHttpRequest } from '@/types/http';
 
@@ -28,7 +35,7 @@ export default (req: FcHttpRequest) =>
       if (err) {
         reject(err);
       }
-      const parser = PARSER_TABLE[req?.headers['content-type']];
+      const parser = PARSER_TABLE[req?.headers['content-type']?.split(';')[0]];
       if (parser) {
         resolve(parser(body));
       }
